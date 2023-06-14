@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var order = Order()
+    @ObservedObject var order = SharedOrder()
     
     var body: some View {
         
@@ -17,8 +17,8 @@ struct ContentView: View {
             Form {
                 Section {
                     Picker("Select your cake type", selection: $order.type) {
-                        ForEach(Order.types.indices) {
-                            Text(Order.types[$0])
+                        ForEach(SharedOrder.types.indices) {
+                            Text(SharedOrder.types[$0])
                         }
                     }
                     
